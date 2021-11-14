@@ -1,0 +1,114 @@
+@use '../partials/colors' as *;
+*, *:before, *:after{
+    box-sizing: border-box;
+}
+html{
+    font-size: 10px;
+}
+body{
+    display: grid;
+    place-items: center;
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+    background: #000;
+}
+ul[role='list'], ol[role='list'], li{
+    list-style-type: none;
+}
+
+// div{
+//     position: relative;
+// }
+p{
+    color: lime;
+    font-size: 2.6rem;
+    letter-spacing: .2rem;
+    border-right: 5px solid grey;
+    animation: texteffect 4s steps(40) infinite, blinks 500ms infinite;
+    overflow: hidden;
+    white-space: nowrap;
+}
+@keyframes texteffect {
+
+    0%{
+        width: 0;
+        display: block;
+    
+    }
+    100%{
+        width: 20rem;
+      display :none;
+    }
+}
+@keyframes blinks {
+    0%{
+border-right:5px solid grey;
+    }
+    100%{
+        border-right: 5px solid transparent;
+    }
+}
+@keyframes blinks1 {
+    0%{
+border-left:5px solid white;
+    }
+    100%{
+        border-left: 5px solid transparent;
+    }
+}
+
+.flex{
+    display: flex;
+    height: 90px;
+    line-height: 90px;
+    overflow-y: hidden;
+
+    &>div{
+        margin: 5px;
+        font-size: 2rem;
+        color: #fff
+       
+    }
+    .dynamic{
+        position: relative;
+        color:  lime;
+        overflow: hidden;
+      
+        span {
+         position: relative;
+         animation: upper 15s steps(3) infinite;
+        }
+        span:after{
+            content: '';
+            position: absolute;
+            width: 105%;
+            height: 125%;
+            border-left: .4rem solid white;
+            background: #000;
+            animation: side 5s steps(40) infinite, blinks1 500ms infinite;
+            bottom: 0;
+            left: 0;
+        }
+    }
+}
+@keyframes side{
+    from{
+      left: 0;
+    }
+     
+    to{
+        left: 100%;
+    }
+}
+@keyframes upper {
+    from{
+        top: 0;
+    }
+    to{
+        top: -270px;
+    }
+}
